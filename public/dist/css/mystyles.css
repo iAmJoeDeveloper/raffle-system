@@ -1,0 +1,7 @@
+[class*=sidebar-dark-]{
+    background-color: #00A1DF;
+}
+
+[class*=sidebar-dark-] .sidebar a{
+    color:#ffffff;
+}
