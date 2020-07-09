@@ -23,7 +23,7 @@ Auth::routes();
 
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::resource('usuarios', 'userController')->middleware('auth');
+Route::resource('usuarios', 'userController');
 
 Route::resource('sucursales', 'branchOfficeController');
 
