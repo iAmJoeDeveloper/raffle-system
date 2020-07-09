@@ -27,7 +27,7 @@ Route::resource('usuarios', 'userController')->middleware('auth');
 
 Route::resource('sucursales', 'branchOfficeController');
 
-Route::resource('bancos','bankController');
+Route::resource('bancos','BankController');
 Route::resource('tarjetas','cardController');
 
 Route::resource('condiciones','conditionController');
