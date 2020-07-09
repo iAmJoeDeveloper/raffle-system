@@ -67,11 +67,11 @@ Route::get('commerce-list-excel', 'commerceController@exportExcel')->name('comme
 
 
 //prueba login
-Route::get('/login2', function(){
-    return view('auth.login2');
-});
+// Route::get('/login2', function(){
+//     return view('auth.login2');
+// });
 
-Route::get('/login3', function(){
-    return view('auth.login3');
-});
+// Route::get('/login3', function(){
+//     return view('auth.login3');
+// });
 
