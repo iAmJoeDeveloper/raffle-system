@@ -18,7 +18,8 @@ class ConditionController extends Controller
 
     public function index()
     {
-        $conditions = DB::Table('conditions')->paginate(10);
+//        $conditions = DB::Table('conditions')->paginate(10);
+        $conditions = Condition::paginate(10);
         return view('condiciones.index', ['conditions'=>$conditions]);
     }
 

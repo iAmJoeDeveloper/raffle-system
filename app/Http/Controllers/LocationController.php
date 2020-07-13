@@ -19,7 +19,7 @@ class LocationController extends Controller
     {
 //        $locations = DB::Table('locations')->paginate(10);
 
-            $locations = Location::all();
+            $locations = Location::paginate(10);
 
         return view('locaciones.index',compact('locations'));
     }

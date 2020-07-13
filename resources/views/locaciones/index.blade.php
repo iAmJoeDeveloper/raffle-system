@@ -31,10 +31,10 @@
             @endforeach
             </tbody>
         </table>
-{{--        <div class="row">--}}
-{{--            <div class="mx-auto">--}}
-{{--                {{$locations->links()}}--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        <div class="row">
+            <div class="mx-auto">
+                {{$locations->links()}}
+            </div>
+        </div>
     </div>
 @endsection

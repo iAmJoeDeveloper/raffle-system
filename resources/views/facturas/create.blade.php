@@ -45,7 +45,7 @@
 
                         <div class="form-group">
                             <label for="invoiceNumber">Número de Factura</label>
-                            <input placeholder="Escriba el número de su factura" type="text" class="form-control" name="invoiceNumber">
+                            <input placeholder="Escriba el número de su factura" type="text" class="form-control" name="invoiceNumber" required>
                         </div>
 
                         <div class="form-group">
@@ -60,7 +60,7 @@
                         <div class="form-group">
                             <label for="commerce_id">Comercio</label>
                             <select class="form-control" name="commerce_id">
-                                @foreach($raffle->commerces as $commerce)
+                                @foreach($raffle->commerces->sortBy('name') as $commerce)
                                     <option value="{{$commerce->id}}">
                                         {{$commerce->name}}
                                     </option>

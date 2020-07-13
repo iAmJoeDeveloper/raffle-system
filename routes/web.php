@@ -1,19 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use RealRashid\SweetAlert\Facades\Alert;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 // Route::get('/home', function () {
 //     return view('welcome');
@@ -23,47 +11,46 @@ Auth::routes();
 
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::resource('usuarios', 'userController');
+Route::resource('usuarios', 'UserController');
 
-Route::resource('sucursales', 'branchOfficeController');
+Route::resource('sucursales', 'BranchOfficeController');
 
 Route::resource('bancos','BankController');
-Route::resource('tarjetas','cardController');
+Route::resource('tarjetas','CardController');
 
-Route::resource('condiciones','conditionController');
+Route::resource('condiciones','ConditionController');
 
-Route::resource('locaciones', 'locationController');
+Route::resource('locaciones', 'LocationController');
 
-Route::resource('comercios','commerceController');
+Route::resource('comercios','CommerceController');
 
-Route::resource('sorteos', 'raffleController');
+Route::resource('sorteos', 'RaffleController');
 
-Route::resource('parametros','parametersController');
+Route::resource('parametros','ParametersController');
 
-Route::resource('grupos','prizeGroupController');
-Route::resource('premios','prizeController');
+Route::resource('grupos','PrizeGroupController');
+Route::resource('premios','PrizeController');
 
-Route::resource('pagos','paymentMethodController');
+Route::resource('pagos','PaymentMethodController');
 
-Route::resource('facturas','invoiceController');
-
+Route::resource('facturas','InvoiceController');
 
 Route::resource('tickets','TicketController');
 
 
-Route::get('facturasListado','facturasListadoController@index');
-Route::get('facturasListado/{invoice_id}','facturasListadoController@show')->name('factura.show');
+Route::get('facturasListado','FacturasListadoController@index');
+Route::get('facturasListado/{invoice_id}','FacturasListadoController@show')->name('factura.show');
 
 Route::get('/sorteos/resultado/{id}','ResultController@index');
 Route::get('/winner/{raffle_id}/{prize_id}', 'ResultController@winner')->name('winner');
 
 //Cliente
-Route::get('facturasRegistradas','facturasRegistradasController@index');
+Route::get('facturasRegistradas','FacturasRegistradasController@index');
 Route::get('/voucher/{id}','PDFController@voucher');
 
 //Descarga Excel
-Route::get('user-list-excel', 'userController@exportExcel')->name('users.excel');
-Route::get('commerce-list-excel', 'commerceController@exportExcel')->name('commerces.excel');
+Route::get('user-list-excel', 'UserController@exportExcel')->name('users.excel');
+Route::get('commerce-list-excel', 'CommerceController@exportExcel')->name('commerces.excel');
 
 
 //prueba login
