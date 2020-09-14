@@ -20,13 +20,13 @@ class ConditionController extends Controller
     {
 //        $conditions = DB::Table('conditions')->paginate(10);
         $conditions = Condition::paginate(10);
-        return view('condiciones.index', ['conditions'=>$conditions]);
+        return view('conditions.index', ['conditions'=>$conditions]);
     }
 
 
     public function create()
     {
-        return view('condiciones.create');
+        return view('conditions.create');
     }
 
 
@@ -40,7 +40,7 @@ class ConditionController extends Controller
 
         $condition->save();
 
-        return redirect('/condiciones');
+        return redirect()->route('conditions.index');
     }
 
 
@@ -48,7 +48,7 @@ class ConditionController extends Controller
     {
         $condition = Condition::findOrFail($id);
 
-        return view('condiciones.show', compact('condition'));
+        return view('conditions.show', compact('condition'));
     }
 
 
@@ -56,7 +56,7 @@ class ConditionController extends Controller
     {
         $condition = Condition::findOrFail($id);
 
-        return view('condiciones.edit', compact('condition'));
+        return view('conditions.edit', compact('condition'));
     }
 
 
@@ -69,7 +69,7 @@ class ConditionController extends Controller
 
         $condition->update();
 
-        return redirect('/condiciones');
+        return redirect()->route('conditions.index');
     }
 
 
@@ -77,6 +77,6 @@ class ConditionController extends Controller
     {
         Condition::destroy($id);
 
-        return redirect('/condiciones');
+        return redirect()->route('conditions.index');
     }
 }

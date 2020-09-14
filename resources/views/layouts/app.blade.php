@@ -142,8 +142,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         {{--Facturas--}}
                         <li class="nav-item">
-                            <a href="{{url('facturas')}}"
-                               class="{{ Request::path() === 'facturas' ? 'nav-link active' : 'nav-link' }}">
+                            <a href="{{route('invoices.index')}}"
+                               class="{{ Request::path() === 'invoices' ? 'nav-link active' : 'nav-link' }}">
                                 <i class="nav-icon fas fa-receipt"></i>
                                 <p>
                                     Registrar Factura
@@ -220,8 +220,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                     {{--Sorteos--}}
                     <li class="nav-item">
-                        <a href="{{url('sorteos')}}"
-                           class="{{ Request::path() === 'sorteos' ? 'nav-link active' : 'nav-link' }}">
+                        <a href="{{route('raffles.index')}}"
+                           class="{{ Request::path() === 'raffles' ? 'nav-link active' : 'nav-link' }}">
                             <i class="nav-icon fas fa-clipboard-list"></i>
                             <p>
                                 Sorteos
@@ -230,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                     {{--Comercios--}}
                     <li class="nav-item">
-                        <a href="{{url('comercios')}}"
+                        <a href="{{route('commerces.index')}}"
                            class="{{ Request::path() === 'comercios' ? 'nav-link active' : 'nav-link' }}">
                             <i class="nav-icon fas fa-store"></i>
                             <p>
@@ -240,7 +240,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                     {{--Locaciones--}}
                     <li class="nav-item">
-                        <a href="{{url('locaciones')}}"
+                        <a href="{{route('locations.index')}}"
                            class="{{ Request::path() === 'locaciones' ? 'nav-link active' : 'nav-link' }}">
                             <i class="nav-icon fas fa-map-pin"></i>
                             <p>
@@ -248,9 +248,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </p>
                         </a>
                     </li>
-                    {{--Bancos--}}
+                    {{--banks--}}
                     <li class="nav-item">
-                        <a href="{{url('bancos')}}"
+                        <a href="{{route('banks.index')}}"
                            class="{{ Request::path() === 'bancos' ? 'nav-link active' : 'nav-link' }}">
                             <i class="nav-icon fas fa-piggy-bank"></i>
                             <p>
@@ -260,7 +260,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                     {{--Condicionales--}}
                     <li class="nav-item">
-                        <a href="{{url('condiciones')}}"
+                        <a href="{{route('conditions.index')}}"
                            class="{{ Request::path() === 'condiciones' ? 'nav-link active' : 'nav-link' }}">
                             <i class="nav-icon fas fa-file-alt"></i>
                             <p>
@@ -281,7 +281,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                     <li class="nav-item">
-                        <a href="{{url('tarjetas')}}"
+                        <a href="{{route('cards.index')}}"
                            class="{{ Request::path() === 'tarjetas' ? 'nav-link active' : 'nav-link' }}">
                             <i class="nav-icon fas  fa-credit-card"></i>
                             <p>
@@ -292,7 +292,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     {{--Sucursales--}}
                     <li class="nav-item">
-                        <a href="{{url('sucursales')}}"
+                        <a href="{{route('branchs.index')}}"
                            class="{{ Request::path() === 'sucursales' ? 'nav-link active' : 'nav-link' }}">
                             <i class="nav-icon fas fa-building"></i>
                             <p>

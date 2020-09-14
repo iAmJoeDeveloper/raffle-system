@@ -17,18 +17,18 @@ class BranchOfficeController extends Controller
 
     public function index()
     {
-//        $users = User::all();
-//        return view('usuarios.index',['users'=>$users]);
 
         $branchs = BranchOffice::all();
-        return view('sucursales.index', ['branchs'=>$branchs]);
+
+
+        return view('branchs.index', ['branchs'=>$branchs]);
 
     }
 
 
     public function create()
     {
-        return view('sucursales.create');
+        return view('branchs.create');
     }
 
 
@@ -46,8 +46,8 @@ class BranchOfficeController extends Controller
 //            $sucursal->image = request('image')->store('uploads','public');
         }
 
-//        $sucursal->save();
-        return redirect('/sucursales');
+
+        return redirect()->route('branchs.index');
     }
 
 
@@ -55,13 +55,13 @@ class BranchOfficeController extends Controller
     {
         $branch = BranchOffice::findOrFail($id);
 
-        return view('sucursales.show', compact('branch'));
+        return view('branchs.show', compact('branch'));
     }
 
 
     public function edit($id)
     {
-        return view('sucursales.edit',['sucursal'=>BranchOffice::findOrFail($id)]);
+        return view('branchs.edit',['sucursal'=>BranchOffice::findOrFail($id)]);
     }
 
 
@@ -72,7 +72,8 @@ class BranchOfficeController extends Controller
 
         $sucursal->update();
 
-        return redirect('/sucursales');
+
+        return redirect()->route('branchs.index');
     }
 
 
@@ -80,7 +81,6 @@ class BranchOfficeController extends Controller
     {
         BranchOffice::destroy($id);
 
-
-        return redirect('/sucursales');
+        return redirect()->route('branchs.index');
     }
 }

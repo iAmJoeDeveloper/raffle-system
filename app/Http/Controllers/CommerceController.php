@@ -23,14 +23,14 @@ class CommerceController extends Controller
 //        $commerces = Commerce::paginate(10);
         $commerces = Commerce::orderBy('location_id','ASC')->paginate(10);
 
-        return view('comercios.index', compact('commerces'));
+        return view('commerces.index', compact('commerces'));
     }
 
 
     public function create()
     {
         $locations = Location::orderBy('description', 'ASC')->pluck('description', 'id');
-        return view('comercios.create', compact('locations'));
+        return view('commerces.create', compact('locations'));
     }
 
 
@@ -45,7 +45,7 @@ class CommerceController extends Controller
 
        $commerce->save();
 
-       return redirect('/comercios')->with('success', 'Comercio Registrado con Éxito');
+       return redirect()->route('commerces.index')->with('success', 'Comercio Registrado con Éxito');
     }
 
 
@@ -53,7 +53,7 @@ class CommerceController extends Controller
     {
         $commerce = Commerce::findOrFail($id);
 
-        return view('comercios.show', compact('commerce'));
+        return view('commerces.show', compact('commerce'));
     }
 
 
@@ -62,7 +62,7 @@ class CommerceController extends Controller
         $commerce = Commerce::findOrFail($id);
         $locations = Location::orderBy('description', 'DESC')->pluck('description','id');
 
-        return view('comercios.edit', compact('commerce','locations'));
+        return view('commerces.edit', compact('commerce','locations'));
     }
 
 
@@ -77,7 +77,7 @@ class CommerceController extends Controller
 
        $commerce->update();
 
-       return redirect('/comercios');
+       return redirect()->route('commerces.index');
     }
 
 
@@ -85,7 +85,7 @@ class CommerceController extends Controller
     {
         Commerce::destroy($id);
 
-        return redirect('/comercios');
+        return redirect()->route('commerces.index');
     }
 
     public function exportExcel()

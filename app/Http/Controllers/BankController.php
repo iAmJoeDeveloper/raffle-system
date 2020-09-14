@@ -22,13 +22,13 @@ class bankController extends Controller
 //        $banks = DB::Table('Banks')->paginate(10);
         $banks = Bank::paginate(10);
 
-        return view('bancos.index',['banks' => $banks]);
+        return view('banks.index',['banks' => $banks]);
     }
 
 
     public function create()
     {
-        return view('bancos.create');
+        return view('banks.create');
     }
 
 
@@ -45,8 +45,7 @@ class bankController extends Controller
             $bank->fill(['image'=> asset($path)])->save();
         }
 
-        return redirect('/bancos');
-
+        return redirect()->route('banks.index');
     }
 
 
@@ -54,7 +53,7 @@ class bankController extends Controller
     {
         $bank = Bank::findOrFail($id);
 
-        return view('bancos.show', compact('bank'));
+        return view('banks.show', compact('bank'));
     }
 
 
@@ -62,7 +61,7 @@ class bankController extends Controller
     {
         $bank = Bank::findOrFail($id);
 
-        return view('bancos.edit', compact('bank'));
+        return view('banks.edit', compact('bank'));
     }
 
 
@@ -73,14 +72,15 @@ class bankController extends Controller
 
         $bank->update();
 
-        return redirect('/bancos');
+
+        return redirect()->route('banks.index');
     }
 
 
     public function destroy($id)
     {
-        Location::destroy($id);
+        Bank::destroy($id);
 
-        return redirect('/bancos');
+        return redirect()->route('banks.index');
     }
 }

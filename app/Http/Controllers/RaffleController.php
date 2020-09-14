@@ -24,7 +24,7 @@ class RaffleController extends Controller
     {
         $raffles = Raffle::all();
 
-        return view('sorteos.index', compact('raffles'));
+        return view('raffles.index', compact('raffles'));
     }
 
 
@@ -36,14 +36,14 @@ class RaffleController extends Controller
         $locations = Location::pluck('description','id');
         $parameters = Parameter::all();
 
-        return view('sorteos.create', compact('branchs', 'commerces','conditions','parameters','locations'));
+        return view('raffles.create', compact('branchs', 'commerces','conditions','parameters','locations'));
     }
 
 
     public function store(Request $request)
     {
-        $raffle = new Raffle();
 
+        $raffle = new Raffle();
         $raffle->branchOffices_id = request('branchOffice');
         $raffle->name = request('name');
         $raffle->description = request('description');
@@ -57,10 +57,11 @@ class RaffleController extends Controller
             $raffle->fill(['image'=> asset($path)])->save();
         }
 
-        $raffle->commerces()->sync($request->commerces);
+//        $raffle->commerces()->sync($request->commerces);
+        $raffle->commerces()->attach($request->commerces);
 
 
-        return redirect('/sorteos');
+        return redirect()->route('raffles.index');
 
     }
 
@@ -73,7 +74,7 @@ class RaffleController extends Controller
         $conditions = Condition::with(['parameters' => function($query)
         {$query->with('raffles');}])->get();
 
-        return view('sorteos.show', compact('raffle', 'conditions'));
+        return view('raffles.show', compact('raffle', 'conditions'));
     }
 
 
@@ -93,6 +94,6 @@ class RaffleController extends Controller
     {
         Raffle::detroy($id);
 
-        return redirect('/sorteos');
+        return redirect()->route('raffles.index');
     }
 }

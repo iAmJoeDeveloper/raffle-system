@@ -12,23 +12,23 @@ class LocationController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // $this->middleware('admin');
+        $this->middleware('admin');
     }
 
     public function index()
     {
 //        $locations = DB::Table('locations')->paginate(10);
 
-            $locations = Location::paginate(10);
+        $locations = Location::paginate(10);
 
-        return view('locaciones.index',compact('locations'));
+        return view('locations.index',compact('locations'));
     }
 
 
     public function create()
     {
         $branchs = BranchOffice::orderBy('name', 'DESC')->pluck('name', 'id');
-        return view('locaciones.create', compact('branchs'));
+        return view('locations.create', compact('branchs'));
     }
 
 
@@ -41,7 +41,7 @@ class LocationController extends Controller
 
         $location->save();
 
-        return redirect('/locaciones');
+        return redirect()->route('locations.index');
     }
 
 
@@ -49,7 +49,7 @@ class LocationController extends Controller
     {
         $location = Location::findOrFail($id);
 
-        return view('locaciones.show', compact('location'));
+        return view('locations.show', compact('location'));
     }
 
 
@@ -58,7 +58,7 @@ class LocationController extends Controller
         $location = Location::findOrFail($id);
         $branchs = BranchOffice::orderBy('name', 'DESC')->pluck('name', 'id');
 
-        return view('locaciones.edit', compact('location', 'branchs'));
+        return view('locations.edit', compact('location', 'branchs'));
     }
 
 
@@ -70,7 +70,7 @@ class LocationController extends Controller
 
         $location->update();
 
-        return redirect('/locaciones');
+        return redirect()->route('locations.index');
     }
 
 
@@ -78,6 +78,6 @@ class LocationController extends Controller
     {
         Location::destroy($id);
 
-        return redirect('/locaciones');
+        return redirect()->route('locations.index');
     }
 }

@@ -228,8 +228,8 @@
                             </li>
 {{--Sorteos--}}
                             <li class="nav-item">
-                                <a href="{{url('sorteos')}}"
-                                   class="{{ Request::path() === 'sorteos' ? 'nav-link active' : 'nav-link' }}">
+                                <a href="{{url('raffles')}}"
+                                   class="{{ Request::path() === 'raffles' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-clipboard-list"></i>
                                     <p>
                                         Sorteos
@@ -240,8 +240,8 @@
                             </li>
                             {{--Comercios--}}
                             <li class="nav-item">
-                                <a href="{{url('comercios')}}"
-                                   class="{{ Request::path() === 'comercios' ? 'nav-link active' : 'nav-link' }}">
+                                <a href="{{url('commerces')}}"
+                                   class="{{ Request::path() === 'commerces' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-store"></i>
                                     <p>
                                         Comercios
@@ -252,7 +252,7 @@
                             </li>
                             {{--Locaciones--}}
                             <li class="nav-item">
-                                <a href="{{url('locaciones')}}"
+                                <a href="{{url('locations')}}"
                                    class="{{ Request::path() === 'locaciones' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-map-pin"></i>
                                     <p>
@@ -262,7 +262,7 @@
                                     </p>
                                 </a>
                             </li>
-{{--Bancos--}}
+{{--banks--}}
                             <li class="nav-item">
                                 <a href="{{url('bancos')}}"
                                    class="{{ Request::path() === 'bancos' ? 'nav-link active' : 'nav-link' }}">
@@ -288,8 +288,8 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{url('tarjetas')}}"
-                                   class="{{ Request::path() === 'tarjetas' ? 'nav-link active' : 'nav-link' }}">
+                                <a href="{{url('cards')}}"
+                                   class="{{ Request::path() === 'cards' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas  fa-credit-card"></i>
                                     <p>
                                         Tarjetas
@@ -301,7 +301,7 @@
 
 {{--                            Sucursales--}}
                             <li class="nav-item">
-                                <a href="{{url('sucursales')}}"
+                                <a href="{{url('branchs')}}"
                                    class="{{ Request::path() === 'sucursales' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-building"></i>
                                     <p>

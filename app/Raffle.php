@@ -18,7 +18,7 @@ class Raffle extends Model
 
     public function commerces()
     {
-        return $this->belongsToMany(Commerce::class);
+        return $this->belongsToMany(Commerce::class)->withTimestamps();;
     }
 
     public function parameters()

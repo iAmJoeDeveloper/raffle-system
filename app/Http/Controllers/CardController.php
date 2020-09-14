@@ -19,13 +19,13 @@ class CardController extends Controller
 //        $cards = Card::all();
 //        $cards = DB::Table('Cards')->paginate(10);
         $cards = Card::paginate(10);
-        return view('tarjetas.index', ['cards'=>$cards]);
+        return view('cards.index', ['cards'=>$cards]);
     }
 
 
     public function create()
     {
-        return view('tarjetas.create');
+        return view('cards.create');
     }
 
 
@@ -38,9 +38,8 @@ class CardController extends Controller
 
         $card->save();
 
-        return redirect('/tarjetas')->with('success', 'Tarjeta Registrada con Exito');
 
-
+        return redirect()->route('cards.index')->with('success', 'Tarjeta Registrada con Éxito');
 
     }
 
@@ -49,7 +48,7 @@ class CardController extends Controller
     {
         $card = Card::findOrFail($id);
 
-        return view('tarjetas.show', compact('card'));
+        return view('cards.show', compact('card'));
     }
 
 
@@ -57,7 +56,7 @@ class CardController extends Controller
     {
         $card = Card::findOrFail($id);
 
-        return view('tarjetas.edit', compact('card'));
+        return view('cards.edit', compact('card'));
     }
 
 
@@ -68,7 +67,7 @@ class CardController extends Controller
 
         $card->update();
 
-        return redirect('/tarjetas');
+        return redirect()->route('cards.index');
     }
 
 
@@ -76,6 +75,6 @@ class CardController extends Controller
     {
         Card::destroy($id);
 
-        return redirect('/tarjetas');
+        return redirect()->route('cards.index');
     }
 }

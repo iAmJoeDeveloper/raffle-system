@@ -13,18 +13,17 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('usuarios', 'UserController');
 
-Route::resource('sucursales', 'BranchOfficeController');
+Route::resource('bancos','BankController')->names('banks');
+Route::resource('sucursales', 'BranchOfficeController')->names('branchs');
+Route::resource('tarjetas','CardController')->names('cards');
+Route::resource('condiciones','ConditionController')->names('conditions');
+Route::resource('comercios','CommerceController')->names('commerces');
+Route::resource('facturas','InvoiceController')->names('invoices');
+Route::resource('locaciones', 'LocationController')->names('locations');
 
-Route::resource('bancos','BankController');
-Route::resource('tarjetas','CardController');
 
-Route::resource('condiciones','ConditionController');
 
-Route::resource('locaciones', 'LocationController');
-
-Route::resource('comercios','CommerceController');
-
-Route::resource('sorteos', 'RaffleController');
+Route::resource('sorteos', 'RaffleController')->names('raffles');
 
 Route::resource('parametros','ParametersController');
 
@@ -33,7 +32,6 @@ Route::resource('premios','PrizeController');
 
 Route::resource('pagos','PaymentMethodController');
 
-Route::resource('facturas','InvoiceController');
 
 Route::resource('tickets','TicketController');
 

@@ -27,7 +27,7 @@ class InvoiceController extends Controller
     {
         // $raffle = Raffle::findOrFail(3);
        $raffles = Raffle::all();
-        return view('facturas.index', compact('raffles'));
+        return view('invoices.index', compact('raffles'));
     }
 
 
@@ -39,7 +39,7 @@ class InvoiceController extends Controller
         $banks = Bank::pluck('name','id');
         $cards = Card::pluck('name','id');
 
-        return view('facturas.create', compact('user','raffle', 'payments', 'banks', 'cards'));
+        return view('invoices.create', compact('user','raffle', 'payments', 'banks', 'cards'));
     }
 
 
@@ -61,7 +61,7 @@ class InvoiceController extends Controller
             $path = Storage::disk('public')->put('uploads',$request->file('image'));
             $invoice->fill(['image'=> asset($path)])->save();
         }
-
+        dd($invoice);
         $tickets = $this->tickets($invoice);
 
         $user = auth()->user();
@@ -70,7 +70,7 @@ class InvoiceController extends Controller
             $m->to($user->email)->subject('Registro de Factura');
         });
 
-        return redirect('/facturas')->with('success', 'Su fáctura generó '.$tickets. ' Tickets');
+        return redirect()->route('invoices.index')->with('success', 'Su fáctura generó '.$tickets. ' Tickets');
     }
 
     public function tickets($invoice)
@@ -109,8 +109,8 @@ class InvoiceController extends Controller
 
         $this->guardarTickets($invoice, $amountTickets);
 
-        return ($amountTickets);
 
+        return ($amountTickets);
     }
 
     public function guardarTickets($invoice, $amountTickets)
